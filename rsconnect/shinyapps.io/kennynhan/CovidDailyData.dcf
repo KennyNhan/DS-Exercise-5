@@ -1,0 +1,14 @@
+name: CovidDailyData
+title: CovidDailyData
+username:
+account: kennynhan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5985088
+bundleId: 5751167
+url: https://kennynhan.shinyapps.io/CovidDailyData/
+when: 1648755780.69055
+lastSyncTime: 1648755780.69055
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 05_exercises_new.Rmd|anim_train.gif|covid.gif|cum_harv.gif|mallorca_bike.gif|README.md|run_image.png|triathlete.gif

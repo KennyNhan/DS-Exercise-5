@@ -264,7 +264,7 @@ knitr::include_graphics("triathlete.gif")
   * Use `group = date` in `aes()`.   
   * Comment on what you see.  
 
-```{r}
+```{r, eval=FALSE}
 census_pop_est_2018 <- read_csv("https://www.dropbox.com/s/6txwv3b4ng7pepe/us_census_2018_state_pop_est.csv?dl=1") %>% 
   separate(state, into = c("dot","state"), extra = "merge") %>% 
   select(-dot) %>% 
@@ -283,16 +283,27 @@ covid19_census <- covid19 %>%
   ungroup()  %>% 
   arrange(state)
 
-covid_cum_2018_pop_est %>% 
-  ggplot() +
-  geom_map(map = states_map,
-           aes(map_id = state_name,
-               fill = covid_per_10000), color = "white") +
+
+p <- ggplot() +
+  geom_map(data = covid19_census, map = states_map,
+           aes(map_id = state,
+               fill = case_per_10000, group = date), color = "white") +
   scale_fill_viridis_c(option = "C", direction = -1)+
   expand_limits(x = states_map$long, y = states_map$lat) +
   theme_map() +
   labs(title = "Proportion of cumulative cases per 10,000 people in the US by state", subtitle = "Date: {frame_along}",
-       caption = "Graph created by Kenny Nhan")
+       caption = "Graph created by Kenny Nhan") + 
+  transition_reveal(date)
+
+animate(p, nframes = 200, end_pause = 10)
+```
+```{r, eval=FALSE, echo=FALSE}
+anim_save("covid.gif")
+```
+
+```{r}
+
+knitr::include_graphics("covid.gif")
 ```
 
 ## Your first `shiny` app (for next week!)
@@ -300,7 +311,8 @@ covid_cum_2018_pop_est %>%
   7. This app will also use the COVID data. Make sure you load that data and all the libraries you need in the `app.R` file you create. You should create a new project for the app, separate from the homework project. Below, you will post a link to the app that you publish on shinyapps.io. You will create an app to compare states' daily number of COVID cases per 100,000 over time. The x-axis will be date. You will have an input box where the user can choose which states to compare (`selectInput()`), a slider where the user can choose the date range, and a submit button to click once the user has chosen all states they're interested in comparing. The graph should display a different line for each state, with labels either on the graph or in a legend. Color can be used if needed. 
   
 Put the link to your app here: 
-  
+
+
 ## GitHub link
 
   8. Below, provide a link to your GitHub repo with this set of Weekly Exercises. 
