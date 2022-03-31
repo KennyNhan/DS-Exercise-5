@@ -322,6 +322,7 @@ Put the link to your app here: [link](https://kennynhan.shinyapps.io/CovidDailyD
 ## GitHub link
 
   8. Below, provide a link to your GitHub repo with this set of Weekly Exercises. 
-
+  
+  [link](https://github.com/KennyNhan/DS-Exercise-5/blob/main/05_exercises_new.Rmd)
 
 **DID YOU REMEMBER TO UNCOMMENT THE OPTIONS AT THE TOP?**
