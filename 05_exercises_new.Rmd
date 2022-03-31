@@ -165,7 +165,7 @@ garden_harvest %>%
   ggplot(aes(x = date, y = cum_harvest_lb)) +
   geom_area(aes( fill = variety))+
   geom_text(aes(label = variety)) +
-  labs( subtitle = "Date: {frame_along}", y = "", x = "") +
+  labs( title = "Cumulative tomatoe harvest in lbs. by variety", subtitle = "Date: {frame_along}", y = "", x = "") +
   theme(legend.position = "none") +
   transition_reveal(date)
   
